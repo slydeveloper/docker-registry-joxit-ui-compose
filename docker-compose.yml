@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+  registry-srv:
+    image: registry:latest
+    restart: always
+    ports:
+      - 5000:5000
+    volumes:
+      - ./registry/storage:/var/lib/registry
+      - ./registry/config.yml:/etc/docker/registry/config.yml:ro
+    container_name: registry-srv
+  registry-ui:
+    image: joxit/docker-registry-ui:static
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      - REGISTRY_URL=http://registry-srv:5000
+      - DELETE_IMAGES=true
+    container_name: registry-ui
