@@ -47,7 +47,6 @@ Manage Docker Registry
 -------------------------------
 - List images via REST API: `http://localhost:5000/v2/_catalog`
 - User Web UI: `http://localhost:8080/`
-- Admin Web UI (allows delete images): `http://localhost:5050/`
 
 Delete image
 -------------------------------
